@@ -25,7 +25,7 @@ public class BookController {
     @GetMapping("/{id}")
     public Book getBookById(@PathVariable int id) {
 
-        return null;
+        return bookService.getBookById(id).get();
     }
 
     @PostMapping
