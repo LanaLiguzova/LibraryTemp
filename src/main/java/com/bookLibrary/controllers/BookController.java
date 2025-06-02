@@ -17,21 +17,17 @@ public class BookController {
 
     @GetMapping
     public List<Book> getBooks() {
-       // List<Book> bookList = new ArrayList<>();
-        //---- --
-
-        return bookService.getBooks();
+       return bookService.getBooks();
     }
 
     @GetMapping("/{id}")
     public Book getBookById(@PathVariable int id) {
-
         return bookService.getBookById(id).get();
     }
 
     @PostMapping
     public Book addBook(@RequestBody Book newBook) {
-        return null;
+        return bookService.addBook(newBook);
     }
 
     @PutMapping("/{id}")
