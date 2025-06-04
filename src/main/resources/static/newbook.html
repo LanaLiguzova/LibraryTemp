@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add book</title>
+</head>
+<body>
+    <h1>Add new book</h1>
+    <form id="bookForm">
+        <label>Title: <input type="text" id="title" required /></label>
+        <label>Author id: <input type="number" id="author" required /></label>
+        <label>Category id: <input type="number" id="category" required /></label>
+        <label>Description: <input type="text" id="desc" required /></label>
+        <label>Price: <input type="text" id="price" required /></label>
+        <label>Stock: <input type="number" id="stock" required /></label>
+        <button type="submit">Add book</button>
+    </form>
+
+    <script>
+        document.getElementById('bookForm').addEventListener('submit', function(event) {
+
+        event.preventDefault();
+
+        const book = {
+            title: document.getElementById('title').value,
+            author_id: document.getElementById('author').value,
+            category_id: document.getElementById('category').value,
+            description: document.getElementById('desc').value,
+            price: document.getElementById('price').value,
+            stock: document.getElementById('stock').value
+        };
+
+        fetch('/api/v1/books', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(book)
+        })
+        .then(response=>response.json())
+        .then(data=> {alert('Book added: ' + JSON.stringify(data));
+         })
+         .catch(error=>{alert('Error: ' + error)});
+
+        });
+    </script>
+
+</body>
+</html>
