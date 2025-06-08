@@ -6,7 +6,29 @@
 </head>
 <body>
 <h1>Update book</h1>
-<label>Enter book id: <input type="number"></label>
+<label>Enter book id:
+    <input id="bookIdInput" type="number">
+    <button onclick="loadBook()">Load book</button>
+
+</label>
+
+<div id="formSection" style="display:none;">
+    <form id="updateForm">
+        <label>Title: <input type="text" id="title" required /></label>
+        <label>Author id: <input type="number" id="author" required /></label>
+        <label>Category id: <input type="number" id="category" required /></label>
+        <label>Description: <input type="text" id="desc" required /></label>
+        <label>Price: <input type="text" id="price" step="0.01" required /></label>
+        <label>Stock: <input type="number" id="stock" required /></label>
+        <button onclick="updateBook()" >Update book</button>
+    </form>
+
+</div>
+
+
 
 </body>
+<script src="update-book.js">
+
+</script>
 </html>
